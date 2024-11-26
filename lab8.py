@@ -18,21 +18,27 @@ blur13 = cv2.GaussianBlur(img,(13, 13),0)
 sobelX = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5) # x dir
 sobelY = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=5) # y dir
 
+sobelXY = cv2.Sobel(img,cv2.CV_64F,1,1,ksize=5) # y dir
+
 #Plotting the first coloured image
-plt.subplot(2, 2, 1),plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap = 'gray')
+plt.subplot(2, 3, 1),plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap = 'gray')
 plt.title('Original'), plt.xticks([]), plt.yticks([])
 
 #Plotting the gray scaled image
-plt.subplot(2, 2, 2),plt.imshow(gray_image, cmap = 'gray')
+plt.subplot(2, 3, 2),plt.imshow(gray_image, cmap = 'gray')
 plt.title('GrayScale'), plt.xticks([]), plt.yticks([])
 
 #Plotting Horizontal sobel
-plt.subplot(2, 2, 3),plt.imshow(sobelX, cmap = 'gray')
+plt.subplot(2, 3, 3),plt.imshow(sobelX, cmap = 'gray')
 plt.title('sobelX'), plt.xticks([]), plt.yticks([])
 
 #Plotting Vertical sobel
-plt.subplot(2, 2, 4),plt.imshow(sobelY, cmap = 'gray')
+plt.subplot(2, 3, 4),plt.imshow(sobelY, cmap = 'gray')
 plt.title('sobelY'), plt.xticks([]), plt.yticks([])
+
+#Plotting sobel sum
+plt.subplot(2, 3, 5),plt.imshow(sobelXY, cmap = 'gray')
+plt.title('sobel sum'), plt.xticks([]), plt.yticks([])
 
 #displaying the image
 plt.show()
